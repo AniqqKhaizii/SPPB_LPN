@@ -24,9 +24,9 @@
         <div class="md:flex md:items-center flex justify-start items-center gap-4 ">
           <a class="block text-teal-600" href="./utama.cfm">
             <span class="sr-only">Home</span>
-            <cfif RS_Tetapan_LPN.LPN_KOD == "LPNMLK">
-              <img src="../../public/assets/LPM.png" class="h-14 w-auto drop-shadow-2xl" />
-            </cfif>
+            <cfoutput>
+              <img class="mx-auto h-14 w-auto drop-shadow-2xl" src="../../LOGO/#Session.LPN_CODE#.png" alt="Organization Logo" height="285" width="285">
+            </cfoutput>
           </a>
           <cfoutput>
           <h1 class="text-2xl font-semibold sm:flex hidden">#RS_Tetapan_LPN.LPN_NAMA#</h1>

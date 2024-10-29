@@ -2,7 +2,7 @@
 
 
 <body>
-           <div class="flex h-screen overflow-auto bg-gradient-to-b from-gray-500 to-gray-900">
+           <div class="flex h-screen overflow-auto bg-gradient-to-b from-gray-50 to-gray-100">
 
             <!-- Sidebar Menu -->
             <cfinclude template="../includes/sppb_site_menu.cfm">

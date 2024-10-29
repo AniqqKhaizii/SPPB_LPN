@@ -89,7 +89,7 @@ localStorage.setItem('scrollpos', window.scrollY);
   <div class="container mx-auto py-6">
     <div class="flex flex-col">
       <div class="card p-8 bg-transparent"> 
-        <form id="form1" name="form1" method="post" action="" class="flex flex-col space-y-4">
+        <div class="flex flex-col space-y-4">
           <div class="flex flex-col shadow-md">
             <div class="flex items-center justify-between py-2 px-4 bg-[#580588] rounded-t-lg" data-plugin="appear" data-animate="fade">
               <h1 class="text-2xl font-semibold text-gray-100 sm:text-2xl md:text-2xl">
@@ -117,9 +117,11 @@ localStorage.setItem('scrollpos', window.scrollY);
                   <li>
                     <a class="inline-block py-2 px-3 text-gray-500 hover:text-gray-800 font-medium border-b-2 border-transparent tab-active:border-b-indigo-600 tab-active:text-indigo-600 tablink whitespace-nowrap cursor-pointer" data-tab="tabs-with-underline-2" role="tab">Imej/Logo</a>
                   </li>
-                  <li>
-                    <a class="inline-block py-2 px-3 text-gray-500 hover:text-gray-800 font-medium border-b-2 border-transparent tab-active:border-b-indigo-600 tab-active:text-indigo-600 tablink whitespace-nowrap cursor-pointer" data-tab="tabs-with-underline-3" role="tab">Tetapan</a>
-                  </li>
+                  <cfif #RS_AKSES_PENGGUNA.USR_ROLES_SUPER# EQ 'Y'>
+                    <li>
+                      <a class="inline-block py-2 px-3 text-gray-500 hover:text-gray-800 font-medium border-b-2 border-transparent tab-active:border-b-indigo-600 tab-active:text-indigo-600 tablink whitespace-nowrap cursor-pointer" data-tab="tabs-with-underline-3" role="tab">Tetapan</a>
+                    </li>
+                  </cfif>
                 </ul>
               </div>
               <div class="mt-2">
@@ -140,10 +142,10 @@ localStorage.setItem('scrollpos', window.scrollY);
                             </div>
                         </div>
 
-                        <div class="w-full border-none mt-2 p-4 space-y-4">
+                        <div class="w-full border-none mt-2 p-4 space-y-2">
                             <div class="grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-4">
-                                <div class="space-y-4 col-span-2">
-                                  <div class="grid lg:grid-cols-6 md:grid-cols-6 sm:grid-cols-1 gap-6">
+                                <div class="space-y-2 col-span-2">
+                                  <div class="grid lg:grid-cols-6 md:grid-cols-6 sm:grid-cols-1 gap-2">
                                       <div class="col-span-6 sm:col-span-1">
                                         <cfif #RS_AKSES_PENGGUNA.USR_ROLES_SUPER# EQ 'Y'>
                                           <label for="LPN_KOD" class="block text-sm font-medium text-gray-700">
@@ -156,7 +158,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                               name="LPN_KOD"
                                               value="#LPN_KOD#"
                                               readonly
-                                              class="mt-1 w-full h-12 rounded-md bg-gray-200 border border-gray-300 text-sm text-gray-700 shadow-sm px-4"
+                                              class=" w-full h-12 rounded-md bg-gray-200 border border-gray-300 text-sm text-gray-700 shadow-sm px-4"
                                             />
                                             <cfif LPN_TEST EQ 'Y'>
                                                 <span class="bg-yellow-500 text-white text-sm font-semibold px-3 py-1 rounded-lg inline-block ml-4">DATA UJIAN</span>
@@ -174,7 +176,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                             name="LPN_NAMA"
                                             value="#LPN_NAMA#"
                                             readonly
-                                            class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                            class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                           />
                                       </div>
 
@@ -189,13 +191,13 @@ localStorage.setItem('scrollpos', window.scrollY);
                                           name="LPN_NSGKT"
                                           value="#LPN_NSGKT#"
                                           readonly
-                                          class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                          class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                         />
                                       </div>
 
-                                      <div class="col-span-6 sm:col-span-3">
+                                      <div class="col-span-6 sm:col-span-6">
                                         <label for="LPN_ALAMAT1" class="block text-sm font-medium text-gray-700">
-                                          Alamat 1
+                                          Alamat
                                         </label>
 
                                         <input
@@ -204,13 +206,13 @@ localStorage.setItem('scrollpos', window.scrollY);
                                           name="LPN_ALAMAT1"
                                           value="#LPN_ALAMAT1#"
                                           readonly
-                                          class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                          class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                         />
                                       </div>
 
-                                      <div class="col-span-6 sm:col-span-3">
+                                      <div class="col-span-6 sm:col-span-6">
                                         <label for="LPN_ALAMAT2" class="block text-sm font-medium text-gray-700">
-                                        Alamat 2
+                                        
                                         </label>
 
                                         <input
@@ -219,12 +221,13 @@ localStorage.setItem('scrollpos', window.scrollY);
                                           name="LPN_ALAMAT2"
                                           value="#LPN_ALAMAT2#"
                                           readonly
-                                          class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                          class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                         />
                                       </div>
-                                      <div class="col-span-6 sm:col-span-3">
+
+                                      <div class="col-span-6 sm:col-span-6">
                                         <label for="LPN_ALAMAT3" class="block text-sm font-medium text-gray-700">
-                                          Alamat 3
+                                          
                                         </label>
 
                                         <input
@@ -233,13 +236,13 @@ localStorage.setItem('scrollpos', window.scrollY);
                                           name="LPN_ALAMAT3"
                                           value="#LPN_ALAMAT3#"
                                           readonly
-                                          class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                          class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                         />
                                       </div>
 
-                                      <div class="col-span-6 sm:col-span-3">
+                                      <div class="col-span-6 sm:col-span-6">
                                         <label for="LPN_ALAMAT4" class="block text-sm font-medium text-gray-700">
-                                        Alamat 4
+                                        
                                         </label>
 
                                         <input
@@ -248,7 +251,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                           name="LPN_ALAMAT4"
                                           value="#LPN_ALAMAT4#"
                                           readonly
-                                          class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                          class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                         />
                                       </div>
 
@@ -263,7 +266,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                           name="TMS_NAMA"
                                           value="#TMS_NAMA#"
                                           readonly
-                                          class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                          class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                         />
                                       
                                       </div>
@@ -271,38 +274,38 @@ localStorage.setItem('scrollpos', window.scrollY);
                                 </div>
                                 <div class="space-y-2 col-span-1 lg:order-last sm:order-first md:order-first">   
                                   <div class="shadow p-4">
-                                      <cfif #LPN_IMEJ_LOGO# NEQ ''>
+                                      <cfif IsNull("#LPN_IMEJ_LOGO#")>
                                           <cfset binaryImageData = toBinary("#LPN_IMEJ_LOGO#")>
                                           <cfset base64ImageData = toBase64(#binaryImageData#)>
-                                          <img class="mx-auto" src="data:image/png;base64,#base64ImageData#" alt="Organization Logo" height="285" width="285">
+                                          
+                                          <img class="mx-auto" src="data:image/png;base64,#base64ImageData#" alt="Organization Logo" height="300" width="300">
                                       <cfelse>
-                                          <img class="mx-auto" src="../assets/images/no_image.png" alt="No Image Available" height="285" width="285">
+                                          <img class="mx-auto" src="../assets/images/no_image.png" alt="No Image Available" height="300" width="300">
                                       </cfif>
                                   </div>
                                   <!-- Button outside the shadow box -->
                                   <div class="mt-6">
-                                      <button class="w-full bg-blue-500 text-white font-regular py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-100" data-target="##MODAL_UPLOAD" data-toggle="modal">
+                                      <button type="button" class="w-full bg-blue-500 text-white font-regular py-2 px-4 rounded hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-100" data-target="##MODAL_UPLOAD" data-toggle="modal">
                                           Upload <span class="icon wb-plus-circle"></span>
                                       </button>
                                   </div>
                                       
                                   <!---MODAL_UPLOAD--->
                                   <div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden" id="MODAL_UPLOAD" aria-hidden="true" role="dialog" tabindex="-1">
-                                      <div class="bg-gray-200 rounded-lg shadow-lg w-1/3 p-0">
+                                      <div class="bg-gray-200 rounded-lg shadow-lg sm:w-1/2 lg:w-1/3 p-0">
                                           <form id="form3" name="form3" method="post" action="sppb_tetapan_organisasi_imej_upload_proses.cfm" enctype="multipart/form-data">
-                                          <div class="bg-gray-500 text-white p-4 rounded-t-lg">
-                                              <h2 class="text-lg font-regular">Upload Logo</h2>
-                                          </div> 
-                                          <div class="p-6">  
-                                              <div class="flex items-center mt-4">
-                                                  <input readonly name="PIC_1" type="file" id="input-file-now" class="form-control" />
-                                              </div>
-                                              <div class="flex justify-between mt-5">
-                                                  <input name="SIMPAN_PIC_1" type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 w-1/3" id="SIMPAN_PIC_1" value="Simpan" />
-                                                  <button type="button" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 w-1/3" data-dismiss="modal">Kembali</button>
-                                              </div>
-                                          </div>
-                                  
+                                            <div class="bg-[url('./assets/Background.jpg')] bg-cover bg-center text-white p-4 rounded-t-lg">
+                                                <h2 class="text-lg font-regular">Upload Logo</h2>
+                                            </div> 
+                                            <div class="p-6">  
+                                                <div class="flex items-center mt-4">
+                                                    <input required name="PIC_1" type="file" id="input-file-now" class="form-control" />
+                                                </div>
+                                                <div class="flex justify-between mt-5">
+                                                    <input name="SIMPAN_PIC_1" type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 w-1/3" id="SIMPAN_PIC_1" value="Simpan" />
+                                                    <button type="button" class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 w-1/3" data-dismiss="modal">Kembali</button>
+                                                </div>
+                                            </div>
                                           </form>
                                       </div>
                                   </div> 
@@ -338,8 +341,8 @@ localStorage.setItem('scrollpos', window.scrollY);
                                 </div>
                                 
                             </div>
-                            <div class="grid lg:grid-cols-8 md:grid-cols-8 sm:grid-cols-4 gap-4">
-                              <div class="col-span-4 sm:col-span-2">
+                            <div class="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-4 gap-2">
+                              <div class="col-span-4 sm:col-span-1">
                                 <label for="LPN_TELNO" class="block text-sm font-medium text-gray-700">
                                   No. Telefon
                                 </label>
@@ -350,11 +353,11 @@ localStorage.setItem('scrollpos', window.scrollY);
                                   name="LPN_TELNO"
                                   value="#LPN_TELNO#"
                                   readonly
-                                  class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                  class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                 />
                               </div>
 
-                              <div class="col-span-4 sm:col-span-2">
+                              <div class="col-span-4 sm:col-span-1">
                                 <label for="LPN_FAXNO" class="block text-sm font-medium text-gray-700">
                                   No. Fax
                                 </label>
@@ -365,11 +368,11 @@ localStorage.setItem('scrollpos', window.scrollY);
                                   name="LPN_FAXNO"
                                   value="#LPN_FAXNO#"
                                   readonly
-                                  class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                  class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                 />
                               </div>
                               
-                              <div class="col-span-4 sm:col-span-2">
+                              <div class="col-span-4 sm:col-span-1">
                                 <label for="LPN_EMEL" class="block text-sm font-medium text-gray-700">
                                   E-mel
                                 </label>
@@ -380,11 +383,11 @@ localStorage.setItem('scrollpos', window.scrollY);
                                   name="LPN_EMEL"
                                   value="#LPN_EMEL#"
                                   readonly
-                                  class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                  class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                 />
                               </div>
 
-                              <div class="col-span-4 sm:col-span-2">
+                              <div class="col-span-4 sm:col-span-1">
                                 <label for="LPN_WSURL" class="block text-sm font-medium text-gray-700">
                                   Website URL
                                 </label>
@@ -395,13 +398,13 @@ localStorage.setItem('scrollpos', window.scrollY);
                                   name="LPN_WSURL"
                                   value="#LPN_WSURL#"
                                   readonly
-                                  class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                  class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                 />
                               </div>
 
-                              <div class="col-span-4 sm:col-span-2">
+                              <div class="col-span-4 sm:col-span-4">
                                 <label for="LPN_SETT_AYT_PETIKAN1" class="block text-sm font-medium text-gray-700">
-                                  Ayat Petikan 1
+                                  Ayat Petikan
                                 </label>
 
                                 <input
@@ -410,13 +413,12 @@ localStorage.setItem('scrollpos', window.scrollY);
                                   name="LPN_SETT_AYT_PETIKAN1"
                                   value="#LPN_SETT_AYT_PETIKAN1#"
                                   readonly
-                                  class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                  class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                 />
                               </div>
 
-                              <div class="col-span-4 sm:col-span-2">
+                              <div class="col-span-4 sm:col-span-4">
                                 <label for="LPN_SETT_AYT_PETIKAN2" class="block text-sm font-medium text-gray-700">
-                                  Ayat Petikan 2
                                 </label>
 
                                 <input
@@ -425,13 +427,12 @@ localStorage.setItem('scrollpos', window.scrollY);
                                   name="LPN_SETT_AYT_PETIKAN2"
                                   value="#LPN_SETT_AYT_PETIKAN2#"
                                   readonly
-                                  class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                  class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                 />
                               </div>
                               
-                              <div class="col-span-4 sm:col-span-2">
+                              <div class="col-span-4 sm:col-span-4">
                                 <label for="LPN_SETT_AYT_PETIKAN3" class="block text-sm font-medium text-gray-700">
-                                  Ayat Petikan 3
                                 </label>
 
                                 <input
@@ -440,13 +441,12 @@ localStorage.setItem('scrollpos', window.scrollY);
                                   name="LPN_SETT_AYT_PETIKAN3"
                                   value="#LPN_SETT_AYT_PETIKAN3#"
                                   readonly
-                                  class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                  class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                 />
                               </div>
 
-                              <div class="col-span-4 sm:col-span-2">
+                              <div class="col-span-4 sm:col-span-4">
                                 <label for="LPN_SETT_AYT_PETIKAN4" class="block text-sm font-medium text-gray-700">
-                                Ayat Petikan 4
                                 </label>
 
                                 <input
@@ -455,7 +455,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                   name="LPN_SETT_AYT_PETIKAN4"
                                   value="#LPN_SETT_AYT_PETIKAN4#"
                                   readonly
-                                  class="mt-1 w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
+                                  class=" w-full h-12 rounded-md border border-gray-300 bg-gray-200 text-sm text-gray-700 shadow-sm px-4"
                                 />
                               </div>
                                 
@@ -473,7 +473,7 @@ localStorage.setItem('scrollpos', window.scrollY);
             </div>
       
           </div> 
-        </form>
+        </div>
       </div>
     </div>
   </div>
