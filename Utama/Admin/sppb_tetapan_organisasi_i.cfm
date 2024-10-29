@@ -274,7 +274,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                 </div>
                                 <div class="space-y-2 col-span-1 lg:order-last sm:order-first md:order-first">   
                                   <div class="shadow p-4">
-                                      <cfif IsNull("#LPN_IMEJ_LOGO#")>
+                                      <cfif #LPN_IMEJ_LOGO_STATUS# NEQ ''>
                                           <cfset binaryImageData = toBinary("#LPN_IMEJ_LOGO#")>
                                           <cfset base64ImageData = toBase64(#binaryImageData#)>
                                           
@@ -329,13 +329,13 @@ localStorage.setItem('scrollpos', window.scrollY);
                                       });
 
                                       // Optional: Close modal when clicking outside of it
-                                      document.querySelectorAll('.fixed').forEach(modal => {
-                                          modal.addEventListener('click', (e) => {
-                                              if (e.target === modal) {
-                                                  modal.classList.add('hidden');
-                                              }
-                                          });
-                                      });
+                                      // document.querySelectorAll('.fixed').forEach(modal => {
+                                      //     modal.addEventListener('click', (e) => {
+                                      //         if (e.target === modal) {
+                                      //             modal.classList.add('hidden');
+                                      //         }
+                                      //     });
+                                      // });
                                   </script>
                             
                                 </div>
