@@ -121,8 +121,11 @@
                             Mukim - Senarai Tetapan Mukim
                         </h1>
                         <cfif #RS_AKSES_PENGGUNA.USR_CTL_TETAPAN_SISTEM# CONTAINS 'E'> 
-                            <button id="openDaftar" type="button" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded w-32">
+                            <button id="openDaftar" type="button" class="flex gap-2 items-center justify-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded w-32">
                             Daftar
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-11.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" clip-rule="evenodd" />
+                            </svg>
                             </button>
                         </cfif>
                     </div>
@@ -151,13 +154,24 @@
                                 <td class="border border-gray-300 text-center py-2"><p>#CurrentRow#.</p></td>
                                 <td class="border border-gray-300 py-2 px-4">#TMD_NAMA# (#TMD_KOD#)</td>
                                 <td class="border border-gray-300 py-2 px-4">#TMM_NAMA# (#TMM_KOD#)</td>
-                                <td class="border border-gray-300 py-2 px-4 text-center"> 
-                                    <button id="openKemaskini#TMM_KOD#" type="button" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                                    Kemaskini
-                                    </button>  
-                                    <button id="openHapus#TMM_KOD#" type="button" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200">
-                                        Hapus 
-                                    </button> 
+                                <td class="border border-gray-300 py-2 px-2 text-center"> 
+                                    <div class="flex gap-2 items-center justify-center">
+                                        <button id="openKemaskini#TMM_KOD#" type="button" class="flex gap-2 items-center justify-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                                        Kemaskini
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="icon-kemaskini" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                            <path
+                                                d="m5.433 13.917 1.262-3.155A4 4 0 0 1 7.58 9.42l6.92-6.918a2.121 2.121 0 0 1 3 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 0 1-.65-.65Z" />
+                                            <path
+                                                d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0 0 10 3H4.75A2.75 2.75 0 0 0 2 5.75v9.5A2.75 2.75 0 0 0 4.75 18h9.5A2.75 2.75 0 0 0 17 15.25V10a.75.75 0 0 0-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5Z" />
+                                        </svg>
+                                        </button>  
+                                        <button id="openHapus#TMM_KOD#" type="button" class="flex gap-2 items-center justify-center bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200">
+                                            Hapus
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                                <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                    </div> 
                                 </td>
                                 </tr>
                             </cfoutput>
@@ -209,15 +223,21 @@
                 <div class="grid grid-cols-2 gap-4 mt-12">
                     <div class="space-y-4 col-span-1">
                         <div class="flex items-center justify-start">
-                            <button type="submit" class="w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="MASUK_DATA" id="MASUK_DATA" disabled> 
+                            <button type="submit" class="flex gap-2 items-center justify-center w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="MASUK_DATA" id="MASUK_DATA" disabled> 
                                 Simpan
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy2" viewBox="0 0 16 16">
+                                  <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v3.5A1.5 1.5 0 0 1 11.5 6h-7A1.5 1.5 0 0 1 3 4.5V1H1.5a.5.5 0 0 0-.5.5m9.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+                                </svg>  
                             </button>
                         </div>
                     </div>
                     <div class="space-y-4 col-span-1">
                         <div class="flex items-center justify-end"> 
-                            <button type="button" id="closeDaftar" class="w-1/2 bg-gray-500 text-white font-medium py-2 px-4 rounded hover:bg-gray-700 focus:outline-none" onclick="closeDaftar()"> 
+                            <button type="button" id="closeDaftar" class="flex gap-2 items-center justify-center w-1/2 bg-gray-500 text-white font-medium py-2 px-4 rounded hover:bg-gray-700 focus:outline-none" onclick="closeDaftar()"> 
                                 Kembali
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                    <path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z" clip-rule="evenodd" />
+                                </svg>
                             </button>
                         </div>
                     </div>
@@ -226,7 +246,7 @@
                 <cfif isdefined("form.MASUK_DATA")>
                     <cfstoredproc procedure="SP_TETAPAN_TEMPAT_MUKIM_SIMPAN" datasource="LPN_0SYS"> 
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#"> 
-                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="ELIXTECH">  
+                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#">  
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm">
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@ADD_NEW"  value="Y">
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMM_NAMA"  value="#FORM.TMM_NAMA#">
@@ -311,15 +331,21 @@
                 <div class="grid grid-cols-2 gap-4 mt-12">
                     <div class="space-y-4 col-span-1">
                         <div class="flex items-center justify-start">
-                            <button type="submit" class="w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="KEMASKINI_DATA" id="KEMASKINI_DATA#TMM_KOD#" disabled> 
+                            <button type="submit" class="flex gap-2 items-center justify-center w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="KEMASKINI_DATA" id="KEMASKINI_DATA#TMM_KOD#" disabled> 
                                 Simpan
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy2" viewBox="0 0 16 16">
+                                    <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v3.5A1.5 1.5 0 0 1 11.5 6h-7A1.5 1.5 0 0 1 3 4.5V1H1.5a.5.5 0 0 0-.5.5m9.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+                                </svg>
                             </button>
                         </div>
                     </div>
                     <div class="space-y-4 col-span-1">
                         <div class="flex items-center justify-end"> 
-                            <button type="button" id="closeKemaskini#TMM_KOD#" class="w-1/2 bg-gray-500 text-white font-medium py-2 px-4 rounded hover:bg-gray-700 focus:outline-none" onclick="closeKemaskini#TMM_KOD#()"> 
+                            <button type="button" id="closeKemaskini#TMM_KOD#" class="flex gap-2 items-center justify-center w-1/2 bg-gray-500 text-white font-medium py-2 px-4 rounded hover:bg-gray-700 focus:outline-none" onclick="closeKemaskini#TMM_KOD#()"> 
                                 Kembali
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                    <path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z" clip-rule="evenodd" />
+                                </svg>
                             </button>
                         </div>
                     </div>
@@ -328,8 +354,8 @@
 				
                 <cfif isdefined("form.KEMASKINI_DATA")>
                     <cfstoredproc procedure="SP_TETAPAN_TEMPAT_MUKIM_SIMPAN" datasource="LPN_0SYS"> 
-                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="LPNMLK"> 
-                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="ELIXTECH">  
+                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#"> 
+                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#">  
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm">
                         <cfprocparam cfsqltype="CF_SQL_INTEGER" dbvarname="@TMM_KOD"  value=#FORM.TMM_KOD#>
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMM_NAMA"  value="#FORM.TMM_NAMA#">
@@ -412,15 +438,21 @@
                 <div class="grid grid-cols-2 gap-4 mt-12">
                     <div class="space-y-4 col-span-1">
                         <div class="flex items-center justify-start">
-                            <button type="submit" class="w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="HAPUS_DATA" id="HAPUS_DATA#TMM_KOD#" disabled> 
-                                Simpan
+                            <button type="submit" class="flex gap-2 items-center justify-center w-1/2 bg-red-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="HAPUS_DATA" id="HAPUS_DATA#TMM_KOD#" disabled> 
+                                Hapus
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                    <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.52.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z" clip-rule="evenodd" />
+                                </svg>
                             </button>
                         </div>
                     </div>
                     <div class="space-y-4 col-span-1">
                         <div class="flex items-center justify-end"> 
-                            <button type="button" id="closeHapus#TMM_KOD#" class="w-1/2 bg-gray-500 text-white font-medium py-2 px-4 rounded hover:bg-gray-700 focus:outline-none" onclick="closeHapus#TMM_KOD#()"> 
+                            <button type="button" id="closeHapus#TMM_KOD#" class="flex gap-2 items-center justify-center w-1/2 bg-gray-500 text-white font-medium py-2 px-4 rounded hover:bg-gray-700 focus:outline-none" onclick="closeHapus#TMM_KOD#()"> 
                                 Kembali
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                                    <path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z" clip-rule="evenodd" />
+                                </svg>
                             </button>
                         </div>
                     </div>
@@ -429,8 +461,8 @@
 				
                 <cfif isdefined("form.HAPUS_DATA")>
                     <cfstoredproc procedure="SP_TETAPAN_TEMPAT_MUKIM_HAPUS" datasource="LPN_0SYS"> 
-                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="LPNMLK"> 
-                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="ELIXTECH">  
+                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#"> 
+                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#">  
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm">
                         <cfprocparam cfsqltype="CF_SQL_INTEGER" dbvarname="@TMM_KOD"  value=#FORM.TMM_KOD#> 
                         <cfprocresult name = RS_HAPUS_DATA>		
@@ -452,12 +484,12 @@
         const saveButton = document.getElementById("HAPUS_DATA" + TMMkod);
         if (elem.checked) {
             saveButton.disabled = false;
-            saveButton.classList.remove('bg-blue-200', 'cursor-not-allowed');
-            saveButton.classList.add('bg-blue-500', 'hover:bg-blue-700');
+            saveButton.classList.remove('bg-red-200', 'cursor-not-allowed');
+            saveButton.classList.add('bg-red-500', 'hover:bg-red-700');
         } else {
             saveButton.disabled = true;
-            saveButton.classList.add('bg-blue-200', 'cursor-not-allowed');
-            saveButton.classList.remove('bg-blue-500', 'hover:bg-blue-700');
+            saveButton.classList.add('bg-red-200', 'cursor-not-allowed');
+            saveButton.classList.remove('bg-red-500', 'hover:bg-red-700');
         }
     }
 
