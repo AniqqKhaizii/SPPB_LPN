@@ -1,3 +1,15 @@
+<style>
+    input#PemajuDropdown:checked + label .rotate-icon-pemaju {
+        transform: rotate(90deg);
+    }
+    input#SistemDropdown:checked + label .rotate-icon-sistem {
+        transform: rotate(90deg);
+    }
+    input#TetapanDropdown:checked + label .rotate-icon-tetapan {
+        transform: rotate(90deg);
+    }
+</style>
+
 <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-gray-950 text-white transform -translate-x-full lg:translate-x-0 transition-transform duration-300 lg:pt-16 lg:z-10 z-20">
     <div class="flex items-center h-16 border-b border-gray-700 px-4 gap-2">
         <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -16,13 +28,13 @@
                     </svg>
                     <span>Pemaju</span>
                 </div>
-                <svg class="w-4 h-4 transform transition-transform peer-checked:rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 transform transition-transform rotate-icon-pemaju" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
                 </svg>
             </label>
             <div class="max-h-0 overflow-hidden peer-checked:max-h-40 transition-all duration-500 ease-in-out space-y-2 peer-checked:bg-gray-900">
                 <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Pemaju/sppb_daftar_pemaju.cfm">
-                    <a href="../Pemaju/sppb_daftar_pemaju.cfm" class="flex items-center space-x-2 gap-2 py-2.5 px-4 bg-gray-800 hover:bg-gray-700 transition pl-8">
+                    <a href="../Pemaju/sppb_daftar_pemaju.cfm" class="flex items-center space-x-2 gap-2 py-2.5 px-4 bg-gray-100 text-gray-800 hover:bg-gray-700 transition pl-8">
                 <cfelse>
                     <a href="../Pemaju/sppb_daftar_pemaju.cfm" class="flex items-center space-x-2 gap-2 py-2.5 px-4 hover:bg-gray-700 transition pl-8">
                 </cfif>
@@ -43,7 +55,7 @@
         </div>
 
        <a href="/Pembeli" class="flex items-center space-x-2 py-2.5 px-4 hover:bg-gray-700 transition">
-            <svg class="w-5 h-5 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16 19h4a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-2m-2.236-4a3 3 0 1 0 0-4M3 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
             </svg>
 
@@ -68,7 +80,7 @@
                     </svg>
                     <span>Sistem</span>
                 </div>
-                <svg id="arrowSistem"class="w-4 h-4 transform transition-transform " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <svg id="arrowSistem"class="w-4 h-4 transform transition-transform rotate-icon-sistem" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
                 </svg>
             </label>
@@ -92,7 +104,7 @@
                             </svg>
                             <span>Tetapan</span>
                         </div>
-                        <svg class="w-4 h-4 transform transition-transform checked:rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transform transition-transform rotate-icon-tetapan" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5 7 7-7 7"/>
                         </svg>
                     </label>
@@ -102,13 +114,17 @@
                         <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_organisasi.cfm" OR 
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_organisasi_kemaskini.cfm" OR 
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_organisasi_jabatan.cfm">
-                        <a href="../Admin/sppb_tetapan_organisasi.cfm" class="flex items-center space-x-4 gap-2 py-2.5 bg-gray-800 hover:bg-gray-700 transition pl-8">
+                        <a href="../Admin/sppb_tetapan_organisasi.cfm" class="flex items-center space-x-4 gap-2 py-2.5 bg-gray-100 text-gray-800 hover:bg-gray-400 transition pl-8">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 3.5C6 2.67157 6.67157 2 7.5 2H8.5C9.32843 2 10 2.67157 10 3.5V4.5C10 5.32843 9.32843 6 8.5 6V7H11C11.2761 7 11.5 7.22386 11.5 7.5V8.5C11.5 8.77614 11.2761 9 11 9C10.7239 9 10.5 8.77614 10.5 8.5V8H5.5V8.5C5.5 8.77614 5.27614 9 5 9C4.72386 9 4.5 8.77614 4.5 8.5V7.5C4.5 7.22386 4.72386 7 5 7H7.5V6C6.67157 6 6 5.32843 6 4.5V3.5ZM3 11.5C3 10.6716 3.67157 10 4.5 10H5.5C6.32843 10 7 10.6716 7 11.5V12.5C7 13.3284 6.32843 14 5.5 14H4.5C3.67157 14 3 13.3284 3 12.5V11.5ZM9 11.5C9 10.6716 9.67157 10 10.5 10H11.5C12.3284 10 13 10.6716 13 11.5V12.5C13 13.3284 12.3284 14 11.5 14H10.5C9.67157 14 9 13.3284 9 12.5V11.5Z" fill="black"/>
+                            </svg>
                         <cfelse>
                         <a href="../Admin/sppb_tetapan_organisasi.cfm" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-gray-700 transition pl-8">
-                        </cfif>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6 3.5C6 2.67157 6.67157 2 7.5 2H8.5C9.32843 2 10 2.67157 10 3.5V4.5C10 5.32843 9.32843 6 8.5 6V7H11C11.2761 7 11.5 7.22386 11.5 7.5V8.5C11.5 8.77614 11.2761 9 11 9C10.7239 9 10.5 8.77614 10.5 8.5V8H5.5V8.5C5.5 8.77614 5.27614 9 5 9C4.72386 9 4.5 8.77614 4.5 8.5V7.5C4.5 7.22386 4.72386 7 5 7H7.5V6C6.67157 6 6 5.32843 6 4.5V3.5ZM3 11.5C3 10.6716 3.67157 10 4.5 10H5.5C6.32843 10 7 10.6716 7 11.5V12.5C7 13.3284 6.32843 14 5.5 14H4.5C3.67157 14 3 13.3284 3 12.5V11.5ZM9 11.5C9 10.6716 9.67157 10 10.5 10H11.5C12.3284 10 13 10.6716 13 11.5V12.5C13 13.3284 12.3284 14 11.5 14H10.5C9.67157 14 9 13.3284 9 12.5V11.5Z" fill="white"/>
                             </svg>
+                        </cfif>
+                            
                             Organisasi
                         </a>
                         <a href="/Tetapan/Pengguna" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-gray-700 transition pl-8">
@@ -123,13 +139,16 @@
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_tempat_adun.cfm" OR
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_tempat_parlimen.cfm" OR 
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_tempat_pbt.cfm">
-                        <a href="../Admin/sppb_tetapan_tempat_daerah.cfm" class="flex items-center space-x-4 gap-2 py-2.5 bg-gray-800 hover:bg-gray-700 transition pl-8">
-                        <cfelse>
-                        <a href="../Admin/sppb_tetapan_tempat_daerah.cfm" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-gray-700 transition pl-8">
-                        </cfif>
+                        <a href="../Admin/sppb_tetapan_tempat_daerah.cfm" class="flex items-center space-x-4 gap-2 py-2.5 bg-gray-100 text-gray-800 hover:bg-gray-400 transition pl-8">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 4C4 1.79086 5.79086 0 8 0C10.2091 0 12 1.79086 12 4C12 6.03981 10.4732 7.723 8.5 7.96905V13.5C8.5 13.7761 8.27614 14 8 14C7.72386 14 7.5 13.7761 7.5 13.5V7.96905C5.52684 7.723 4 6.03981 4 4ZM6.49328 12.5742C6.53841 12.8467 6.35414 13.1041 6.08171 13.1492C5.37026 13.2671 4.80258 13.4439 4.42743 13.6415C4.23962 13.7405 4.1222 13.8332 4.05719 13.9069C4.02598 13.9422 4.01158 13.9679 4.00527 13.9824C4.00219 13.9895 4.00098 13.9941 4.00049 13.9963C4.00003 13.9984 4 14 4 14C4 14 3.99995 14.0025 4.00153 14.0077C4.00322 14.0132 4.00741 14.0243 4.01754 14.0407C4.03876 14.0753 4.08204 14.1273 4.16312 14.1912C4.32821 14.3213 4.59808 14.4603 4.97613 14.5863C5.72701 14.8366 6.79615 15 8 15C9.20386 15 10.273 14.8366 11.0239 14.5863C11.4019 14.4603 11.6718 14.3213 11.8369 14.1912C11.918 14.1273 11.9612 14.0753 11.9825 14.0407C11.9926 14.0243 11.9968 14.0132 11.9985 14.0077C12 14.0026 12 14.0001 12 14.0001C12 14.0001 12 13.9984 11.9995 13.9963C11.999 13.9941 11.9978 13.9895 11.9947 13.9824C11.9884 13.9679 11.974 13.9422 11.9428 13.9069C11.8778 13.8332 11.7604 13.7405 11.5726 13.6415C11.1974 13.4439 10.6297 13.2671 9.91829 13.1492C9.64586 13.1041 9.46159 12.8467 9.50672 12.5742C9.55185 12.3018 9.80928 12.1175 10.0817 12.1627C10.852 12.2903 11.5343 12.491 12.0387 12.7568C12.5009 13.0003 13 13.4014 13 14C13 14.426 12.7406 14.7522 12.4559 14.9766C12.1655 15.2054 11.7764 15.3896 11.3401 15.535C10.4623 15.8276 9.28143 16 8 16C6.71857 16 5.53771 15.8276 4.65991 15.535C4.22362 15.3896 3.83448 15.2054 3.54415 14.9766C3.25945 14.7522 3 14.426 3 14C3 13.4014 3.49912 13.0003 3.96128 12.7568C4.4657 12.491 5.14802 12.2903 5.91829 12.1627C6.19072 12.1175 6.44815 12.3018 6.49328 12.5742Z" fill="black"/>
+                            </svg>
+                        <cfelse>    
+                        <a href="../Admin/sppb_tetapan_tempat_daerah.cfm" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-gray-700 transition pl-8">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4 4C4 1.79086 5.79086 0 8 0C10.2091 0 12 1.79086 12 4C12 6.03981 10.4732 7.723 8.5 7.96905V13.5C8.5 13.7761 8.27614 14 8 14C7.72386 14 7.5 13.7761 7.5 13.5V7.96905C5.52684 7.723 4 6.03981 4 4ZM6.49328 12.5742C6.53841 12.8467 6.35414 13.1041 6.08171 13.1492C5.37026 13.2671 4.80258 13.4439 4.42743 13.6415C4.23962 13.7405 4.1222 13.8332 4.05719 13.9069C4.02598 13.9422 4.01158 13.9679 4.00527 13.9824C4.00219 13.9895 4.00098 13.9941 4.00049 13.9963C4.00003 13.9984 4 14 4 14C4 14 3.99995 14.0025 4.00153 14.0077C4.00322 14.0132 4.00741 14.0243 4.01754 14.0407C4.03876 14.0753 4.08204 14.1273 4.16312 14.1912C4.32821 14.3213 4.59808 14.4603 4.97613 14.5863C5.72701 14.8366 6.79615 15 8 15C9.20386 15 10.273 14.8366 11.0239 14.5863C11.4019 14.4603 11.6718 14.3213 11.8369 14.1912C11.918 14.1273 11.9612 14.0753 11.9825 14.0407C11.9926 14.0243 11.9968 14.0132 11.9985 14.0077C12 14.0026 12 14.0001 12 14.0001C12 14.0001 12 13.9984 11.9995 13.9963C11.999 13.9941 11.9978 13.9895 11.9947 13.9824C11.9884 13.9679 11.974 13.9422 11.9428 13.9069C11.8778 13.8332 11.7604 13.7405 11.5726 13.6415C11.1974 13.4439 10.6297 13.2671 9.91829 13.1492C9.64586 13.1041 9.46159 12.8467 9.50672 12.5742C9.55185 12.3018 9.80928 12.1175 10.0817 12.1627C10.852 12.2903 11.5343 12.491 12.0387 12.7568C12.5009 13.0003 13 13.4014 13 14C13 14.426 12.7406 14.7522 12.4559 14.9766C12.1655 15.2054 11.7764 15.3896 11.3401 15.535C10.4623 15.8276 9.28143 16 8 16C6.71857 16 5.53771 15.8276 4.65991 15.535C4.22362 15.3896 3.83448 15.2054 3.54415 14.9766C3.25945 14.7522 3 14.426 3 14C3 13.4014 3.49912 13.0003 3.96128 12.7568C4.4657 12.491 5.14802 12.2903 5.91829 12.1627C6.19072 12.1175 6.44815 12.3018 6.49328 12.5742Z" fill="white"/>
                             </svg>
+                        </cfif>    
                             Tempat
                         </a>
                         <a href="/Tetapan/Hartanah" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-gray-700 transition pl-8">

@@ -14,8 +14,8 @@
                 <cfinclude template="../includes/header.cfm">
 
                 <!-- Main Content -->
-                <main class="bg-transparent pt-24 px-12 flex-grow">
-                    <cfinclude template="./sppb_daftar_pemaju_i.cfm">
+                <main class="bg-transparent pt-12 flex-grow">
+                    <cfinclude template="./sppb_tetapan_tempat_pbt_i.cfm">
                 </main>
             </div>
     </div>

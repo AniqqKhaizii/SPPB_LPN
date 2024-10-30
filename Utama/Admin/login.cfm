@@ -19,6 +19,8 @@
     <cfset Session.USR_ROLES_ADMIN = #verifyusername.USR_ROLES_ADMIN#>
     <cfset Session.USR_ROLES_BIASA = #verifyusername.USR_ROLES_BIASA#>
     <cfset Session.USR_CTL_DATA_TEST = #verifyusername.USR_CTL_DATA_TEST#>
+    <cfset Session.USR_CTL_TETAPAN_SISTEM = #verifyusername.USR_CTL_TETAPAN_SISTEM#>
+    <cfset Session.USR_CTL_TETAPAN_PENGGUNA = #verifyusername.USR_CTL_TETAPAN_PENGGUNA#>
     <cfset Session.USR_PAGE_DEFAULT = #verifyusername.USR_PAGE_DEFAULT#>
     <cfset Session.USR_PAGE_LOCK = #verifyusername.USR_PAGE_LOCK#>
     <cfset Session.USR_LOGIN_TOKEN = #verifyusername.USR_LOGIN_TOKEN#>

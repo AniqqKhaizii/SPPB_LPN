@@ -40,14 +40,25 @@
 
       <div class="flex items-center">
         <div class="flex items-center sm:gap-4 gap-2">
-          <a
-            class="flex items-center rounded-md bg-green-600 px-5 py-2.5 text-sm font-medium text-white shadow-xl"
-            href="#">
-            Profail
-            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
-            </svg>
-          </a>
+          <div class="relative inline-block">
+            <button
+              class="flex items-center rounded-md bg-green-600 px-5 py-2.5 text-sm font-medium text-white shadow-xl"
+              onclick="window.location.href='sppb_pengguna_profile.cfm';"
+              data-tooltip-target="bottom-tooltip">
+              Profail
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            <div
+              class="absolute top-full invisible left-1/2 z-20 mt-3 border border-gray-300 -translate-x-1/2 whitespace-nowrap rounded-md bg-white py-2 px-4 text-xs text-gray-800 font-medium transition-opacity duration-300 shadow-[0px_-12px_30px_-4px_rgba(16,24,40,0.08)]"
+              role="tooltip" id="bottom-tooltip">
+            <span
+              class="absolute -top-1.5 left-1/2 -z-10 h-3 w-3  border-t border-l rounded-sm border-gray-300 -translate-x-1/2 rotate-45 bg-white"></span>
+                Profail Pengguna
+            </div>  
+          </div>
+          
           <div class="hidden sm:flex">
             <a
               class="flex items-center rounded-md bg-red-600 px-5 py-2.5 text-sm font-medium text-white shadow-xl"
@@ -73,8 +84,8 @@
 
 <script>
     // JavaScript to toggle sidebar visibility on mobile
-    const sidebar = document.getElementById('sidebar');
-    const toggleButton = document.getElementById('sidebarToggle');
+    var sidebar = document.getElementById('sidebar');
+    var toggleButton = document.getElementById('sidebarToggle');
 
     toggleButton.addEventListener('click', () => {
         sidebar.classList.toggle('-translate-x-full');

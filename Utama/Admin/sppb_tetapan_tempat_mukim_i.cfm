@@ -97,7 +97,7 @@
                     </h1>
                 </div>  
                 <div class="block p-2">
-                    <ul class="flex border-b border-gray-200 space-x-3 transition-all duration-300 -mb-px">
+                    <ul class="flex flex-wrap border-b border-gray-200 space-x-3 transition-all duration-300 -mb-px">
                     <li>
                         <a class="inline-block py-2 px-3 text-gray-500 hover:text-gray-800 font-medium border-b-2 border-transparent tab-active:border-b-indigo-600 tab-active:text-indigo-600  tablink whitespace-nowrap cursor-pointer" data-tab="tabs-with-underline-1" role="tab" href="sppb_tetapan_tempat_daerah.cfm">Daerah</a>
                     </li>
@@ -133,35 +133,37 @@
                 </div>
 
         
-                <div class="panel-body-12 px-4">
-                <table class="min-w-full border border-gray-300">
-                    <thead class="bg-gray-200">
-                    <tr align="center">
-                        <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 5%;">No.</th>
-                        <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 30%;">Daerah</th>
-                        <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 30%;">Mukim</th>
-                        <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Tindakan</th>
-                    </tr>
-                    </thead>
+                <div class="min-w-full panel-body-12 px-4">
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full border border-gray-300">
+                            <thead class="bg-gray-200">
+                            <tr align="center">
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 5%;">No.</th>
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 30%;">Daerah</th>
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 30%;">Mukim</th>
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Tindakan</th>
+                            </tr>
+                            </thead>
 
-                    <tbody>
-                    <cfoutput query="RS_MUKIM">
-                        <tr class="border-t">
-                        <td class="border border-gray-300 text-center py-2"><p>#CurrentRow#.</p></td>
-                        <td class="border border-gray-300 py-2 px-4">#TMD_NAMA# (#TMD_KOD#)</td>
-                        <td class="border border-gray-300 py-2 px-4">#TMM_NAMA# (#TMM_KOD#)</td>
-                        <td class="border border-gray-300 py-2 px-4 text-center"> 
-                            <button id="openKemaskini#TMM_KOD#" type="button" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-                            Kemaskini
-                            </button>  
-                            <button id="openHapus#TMM_KOD#" type="button" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200 mt-2">
-                                Hapus 
-                            </button> 
-                        </td>
-                        </tr>
-                    </cfoutput>
-                    </tbody>
-                </table>  
+                            <tbody>
+                            <cfoutput query="RS_MUKIM">
+                                <tr class="border-t">
+                                <td class="border border-gray-300 text-center py-2"><p>#CurrentRow#.</p></td>
+                                <td class="border border-gray-300 py-2 px-4">#TMD_NAMA# (#TMD_KOD#)</td>
+                                <td class="border border-gray-300 py-2 px-4">#TMM_NAMA# (#TMM_KOD#)</td>
+                                <td class="border border-gray-300 py-2 px-4 text-center"> 
+                                    <button id="openKemaskini#TMM_KOD#" type="button" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+                                    Kemaskini
+                                    </button>  
+                                    <button id="openHapus#TMM_KOD#" type="button" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-200">
+                                        Hapus 
+                                    </button> 
+                                </td>
+                                </tr>
+                            </cfoutput>
+                            </tbody>
+                        </table> 
+                    </div> 
                 </div> 
             </div> 
 		  
@@ -281,6 +283,9 @@
             <form id="form2" name="form2" method="post" action="">
                 <div class="space-y-4 col-span-1"> 
                     <div class="flex items-center">
+ 						<input hidden name="TMD_KOD" class="w-full bg-gray-200 text-gray-800 border border-gray-400 rounded-md px-2 py-1 focus:outline-none focus:border-gray-400" type="number" value="#TMD_KOD#"/>
+                    </div>
+                    <div class="flex items-center">
                         <span class="w-1/4 font-medium text-gray-800">Kod</span>
                         <span class="w-1/12 text-left">:</span> 
  						<input readonly name="TMM_KOD" class="w-full bg-gray-200 text-gray-800 border border-gray-400 rounded-md px-2 py-1 focus:outline-none focus:border-gray-400" type="number" value="#TMM_KOD#"/>
@@ -328,6 +333,7 @@
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm">
                         <cfprocparam cfsqltype="CF_SQL_INTEGER" dbvarname="@TMM_KOD"  value=#FORM.TMM_KOD#>
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMM_NAMA"  value="#FORM.TMM_NAMA#">
+                        <cfprocparam cfsqltype="CF_SQL_INTEGER" dbvarname="@TMD_KOD"  value=#FORM.TMD_KOD#>
                         <cfprocresult name = RS_KEMASKINI_DATA>		
                     </cfstoredproc>
 
