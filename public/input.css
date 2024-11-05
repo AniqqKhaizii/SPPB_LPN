@@ -7,16 +7,20 @@
     src: url('../public/fonts/Satoshi-Medium.woff');
 }
 
+@font-face {
+    font-family: 'Public Sans';
+    src: url('../public/fonts/PublicSans-Regular.ttf');
+}
+
 header,
 aside,
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Public Sans', sans-serif;
 }
 
 * {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Public Sans', sans-serif;
 }
-
 
 .daftar-button {
     background-color: #00c273;

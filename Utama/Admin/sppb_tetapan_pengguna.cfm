@@ -15,7 +15,7 @@
 
                 <!-- Main Content -->
                 <main class="bg-transparent pt-16 flex-grow">
-                    <cfinclude template="./sppb_tetapan_tempat_daerah_i.cfm">
+                    <cfinclude template="./sppb_tetapan_pengguna_i.cfm">
                 </main>
             </div>
     </div>

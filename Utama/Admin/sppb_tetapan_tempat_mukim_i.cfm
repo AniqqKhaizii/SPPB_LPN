@@ -86,13 +86,12 @@
 <!---<cfdump var="#FORM#" label="Form Data">--->
 
 <div class="page">
-  <div class="container mx-auto mt-12">
     <div class="flex flex-col">
       <div class="card p-8"> 
         <cfform id="form1" name="form1" method="post" action="" class="flex flex-col space-y-4">
             <div class="flex flex-col shadow-md pb-8 h-auto">
                 <div class="flex items-center justify-between py-2 px-4 bg-[#580588] rounded-t-lg" data-plugin="appear" data-animate="fade">
-                    <h1 class="text-2xl font-semibold text-gray-100 sm:text-2xl md:text-2xl">
+                    <h1 class="text-lg font-semibold text-gray-100 sm:text-lg md:text-lg">
                         TETAPAN - TEMPAT - MUKIM
                     </h1>
                 </div>  
@@ -118,7 +117,7 @@
                 <div class="w-full py-2 px-4 border-b border-gray-300">
                     <div class="flex justify-between items-center">
                         <h1 class="text-2xl font-semibold text-gray-900 sm:text-2xl md:text-2xl">
-                            Mukim - Senarai Tetapan Mukim
+                            Senarai Tetapan Mukim
                         </h1>
                         <cfif #RS_AKSES_PENGGUNA.USR_CTL_TETAPAN_SISTEM# CONTAINS 'E'> 
                             <button id="openDaftar" type="button" class="flex gap-2 items-center justify-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded w-32">
@@ -510,8 +509,6 @@
 </div>
 </div>
 </div>
-</div>
 
-</div>
 
 <!-- End Page -->

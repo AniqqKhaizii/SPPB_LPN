@@ -2,8 +2,7 @@
 
 
 <body>
-           <div class="flex h-screen overflow-auto bg-gradient-to-b from-gray-50 to-gray-100">
-
+       <div class="flex h-screen overflow-auto bg-gradient-to-b from-gray-50 to-gray-100">
             <!-- Sidebar Menu -->
             <cfinclude template="../includes/sppb_site_menu.cfm">
 
@@ -15,7 +14,7 @@
 
                 <!-- Main Content -->
                 <main class="bg-transparent pt-16 flex-grow">
-                    <cfinclude template="./sppb_tetapan_tempat_daerah_i.cfm">
+                    <cfinclude template="./sppb_tetapan_pengguna_papar_i.cfm">
                 </main>
             </div>
     </div>

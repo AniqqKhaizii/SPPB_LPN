@@ -16,7 +16,7 @@
 
 
 <!-- Page -->
-<div class="grid grid-cols-1 sm:grid-cols-1 gap-6 items-center min-h-[80vh] bg-gradient-to-br from-purple-600 to-pink-600 backdrop-blur-2xl rounded-lg shadow-2xl text-white text-center p-6">
+<div class="grid grid-cols-1 sm:grid-cols-1 gap-6 items-center min-h-[80vh] rounded-md bg-gradient-to-br from-violet-900 via-purple-600 to-pink-600 backdrop-blur-3xl drop-shadow-2xl text-white text-center p-6">
     
     <cfoutput>
         <div class="flex flex-col justify-center items-center gap-6">

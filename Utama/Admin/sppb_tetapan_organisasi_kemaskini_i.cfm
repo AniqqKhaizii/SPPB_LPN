@@ -86,7 +86,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                             <div class="space-y-2 col-span-2">
                                 <div class="grid lg:grid-cols-6 md:grid-cols-6 sm:grid-cols-1 gap-2">
                                     <div class="col-span-6 sm:col-span-3">
-                                        <label for="LPN_NAMA" class="block text-sm font-semibold text-gray-700">
+                                        <label for="LPN_NAMA" class="block text-sm font-medium text-gray-700">
                                         Nama Penuh
                                         </label>
 
@@ -98,7 +98,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                     </div>
 
                                     <div class="col-span-6 sm:col-span-3">
-                                        <label for="LPN_NSGKT" class="block text-sm font-semibold text-gray-700">
+                                        <label for="LPN_NSGKT" class="block text-sm font-medium text-gray-700">
                                             Nama Singkatan
                                         </label>
 
@@ -111,7 +111,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 
                                     <div class="col-span-6 sm:col-span-3 space-y-2">
                                         <div>
-                                            <label for="LPN_ALAMAT1" class="block text-sm font-semibold text-gray-700">
+                                            <label for="LPN_ALAMAT1" class="block text-sm font-medium text-gray-700">
                                                 Alamat
                                             </label>
 
@@ -119,21 +119,21 @@ localStorage.setItem('scrollpos', window.scrollY);
                                         </div>
 
                                         <div>
-                                            <label for="LPN_ALAMAT2" class="block text-sm font-semibold text-gray-700">
+                                            <label for="LPN_ALAMAT2" class="block text-sm font-medium text-gray-700">
                                             </label>
 
                                             <input name="LPN_ALAMAT2" class="w-full text-gray-800 border border-gray-300 rounded-md px-4 py-2" type="text" value="#LPN_ALAMAT2#"/>
                                         </div>
 
                                         <div>
-                                            <label for="LPN_ALAMAT3" class="block text-sm font-semibold text-gray-700">
+                                            <label for="LPN_ALAMAT3" class="block text-sm font-medium text-gray-700">
                                             </label>
 
                                             <input name="LPN_ALAMAT3" class="w-full text-gray-800 border border-gray-300 rounded-md px-4 py-2" type="text" value="#LPN_ALAMAT3#"/>
                                         </div>
 
                                         <div>
-                                            <label for="LPN_ALAMAT4" class="block text-sm font-semibold text-gray-700">
+                                            <label for="LPN_ALAMAT4" class="block text-sm font-medium text-gray-700">
                                             </label>
 
                                             <input name="LPN_ALAMAT4" class="w-full text-gray-800 border border-gray-300 rounded-md px-4 py-2" type="text" value="#LPN_ALAMAT4#"/>
@@ -141,7 +141,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                     </div>
 
                                     <div class="col-span-6 sm:col-span-3 lg:order-fourth sm:order-last">
-                                        <label for="Negeri" class="block text-sm font-semibold text-gray-700">
+                                        <label for="Negeri" class="block text-sm font-medium text-gray-700">
                                             Negeri
                                         </label>
 
@@ -163,7 +163,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                 </div>
                                 <div class="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 gap-2">
                                     <div class="col-span-4 sm:col-span-1">
-                                    <label for="LPN_TELNO" class="block text-sm font-semibold text-gray-700">
+                                    <label for="LPN_TELNO" class="block text-sm font-medium text-gray-700">
                                         No. Telefon
                                     </label>
 
@@ -172,7 +172,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                     </div>
 
                                     <div class="col-span-4 sm:col-span-1">
-                                    <label for="LPN_FAXNO" class="block text-sm font-semibold text-gray-700">
+                                    <label for="LPN_FAXNO" class="block text-sm font-medium text-gray-700">
                                         No. Fax
                                     </label>
 
@@ -181,7 +181,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                     </div>
                                     
                                     <div class="col-span-4 sm:col-span-1">
-                                    <label for="LPN_EMEL" class="block text-sm font-semibold text-gray-700">
+                                    <label for="LPN_EMEL" class="block text-sm font-medium text-gray-700">
                                         E-mel
                                     </label>
 
@@ -190,7 +190,7 @@ localStorage.setItem('scrollpos', window.scrollY);
                                     </div>
 
                                     <div class="col-span-4 sm:col-span-1">
-                                    <label for="LPN_WSURL" class="block text-sm font-semibold text-gray-700">
+                                    <label for="LPN_WSURL" class="block text-sm font-medium text-gray-700">
                                         Website URL
                                     </label>
 
@@ -199,23 +199,23 @@ localStorage.setItem('scrollpos', window.scrollY);
                                     </div>
 
                                     <div class="col-span-4 sm:col-span-4">
-                                        <label for="LPN_SETT_AYT_PETIKAN1" class="block text-sm font-semibold text-gray-700">
+                                        <label for="LPN_SETT_AYT_PETIKAN1" class="block text-sm font-medium text-gray-700">
                                             Ayat Petikan
                                         </label>
                                         <input name="LPN_SETT_AYT_PETIKAN1" class="w-full text-gray-800 border border-gray-300 rounded-md px-4 py-2" type="text" value="#LPN_SETT_AYT_PETIKAN1#"/> 
                                     </div>
                                     <div class="col-span-4 sm:col-span-4">
-                                        <label for="LPN_SETT_AYT_PETIKAN2" class="block text-sm font-semibold text-gray-700">
+                                        <label for="LPN_SETT_AYT_PETIKAN2" class="block text-sm font-medium text-gray-700">
                                         </label>
                                         <input name="LPN_SETT_AYT_PETIKAN2" class="w-full text-gray-800 border border-gray-300 rounded-md px-4 py-2" type="text" value="#LPN_SETT_AYT_PETIKAN2#"/> 
                                     </div>
                                     <div class="col-span-4 sm:col-span-4">
-                                        <label for="LPN_SETT_AYT_PETIKAN3" class="block text-sm font-semibold text-gray-700">
+                                        <label for="LPN_SETT_AYT_PETIKAN3" class="block text-sm font-medium text-gray-700">
                                         </label>
                                         <input name="LPN_SETT_AYT_PETIKAN3" class="w-full text-gray-800 border border-gray-300 rounded-md px-4 py-2" type="text" value="#LPN_SETT_AYT_PETIKAN3#"/> 
                                     </div>
                                     <div class="col-span-4 sm:col-span-4">
-                                        <label for="LPN_SETT_AYT_PETIKAN4" class="block text-sm font-semibold text-gray-700">
+                                        <label for="LPN_SETT_AYT_PETIKAN4" class="block text-sm font-medium text-gray-700">
                                         </label>
                                         <input name="LPN_SETT_AYT_PETIKAN4" class="w-full text-gray-800 border border-gray-300 rounded-md px-4 py-2" type="text" value="#LPN_SETT_AYT_PETIKAN4#"/> 
                                     </div>
