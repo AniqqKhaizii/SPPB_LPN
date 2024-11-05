@@ -102,10 +102,10 @@ localStorage.setItem('scrollpos', window.scrollY);
         <div class="flex flex-col shadow-md">  
 			<cfoutput query="RS_PENGGUNA">
 				<div class="w-full bg-[##580588] rounded-t-lg p-4 mt-4 ">
-					<div class="sm:flex flex-wrap justify-between items-center">
+					<div class="lg:flex justify-between items-center">
 						<h1 class="text-white font-medium">TETAPAN - PENGGUNA - PAPAR MAKLUMAT</h1>
 						
-						<div class="flex space-x-2"> 
+						<div class="lg:flex space-x-2"> 
 							<cfif #Session.USR_CTL_TETAPAN_PENGGUNA# CONTAINS 'X'> 
 									<button type="button" id="openHapus" class="flex items-center justify-center gap-2 bg-red-500 text-white font-medium py-2 px-4 rounded hover:bg-red-700 focus:outline-none w-full">
 										Hapus
@@ -116,7 +116,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 							</cfif> 
 							<cfif #Session.USR_CTL_TETAPAN_PENGGUNA# CONTAINS 'E'>
 								<a class="animsition-link" href="sppb_tetapan_pengguna_kemaskini.cfm?USR_PEGKOD=#USR_PEGKOD#">
-									<button type="button" class="flex items-center gap-2 bg-green-500 text-white font-medium py-2 px-4 rounded hover:bg-green-700 focus:outline-none w-full">
+									<button type="button" class="flex items-center justify-center gap-2 bg-green-500 text-white font-medium py-2 px-4 rounded hover:bg-green-700 focus:outline-none w-full">
 										Kemaskini
 										<svg xmlns="http://www.w3.org/2000/svg" id="icon-kemaskini" viewBox="0 0 20 20" fill="currentColor" class="size-5">
                                             <path
@@ -128,7 +128,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 								</a>
 							</cfif>  
 								<a class="animsition-link" href="sppb_tetapan_pengguna.cfm">
-									<button type="button" class="flex items-center gap-2 bg-gray-500 text-white font-medium py-2 px-4 rounded hover:bg-gray-700 focus:outline-none w-full">
+									<button type="button" class="flex items-center justify-center gap-2 bg-gray-500 text-white font-medium py-2 px-4 rounded hover:bg-gray-700 focus:outline-none w-full">
 										Kembali
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
 											<path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 0 1-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 0 1 0 10.75H10.75a.75.75 0 0 1 0-1.5h2.875a3.875 3.875 0 0 0 0-7.75H3.622l4.146 3.957a.75.75 0 0 1-1.036 1.085l-5.5-5.25a.75.75 0 0 1 0-1.085l5.5-5.25a.75.75 0 0 1 1.06.025Z" clip-rule="evenodd" />
@@ -291,7 +291,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 											</div> 
 										</td> 
 										<td class="px-2 py-2" colspan="2">  
-											<div class="flex justify-start gap-6 items-center"> 
+											<div class="flex justify-start lg:gap-6 sm:gap-2 items-center"> 
 												<div class="flex gap-2"> 
 													<input disabled type="radio" name="USR_ROLES_BIASA" value="Y"<cfif USR_ROLES_BIASA EQ 'Y'> checked</cfif>>Biasa
 												</div>
@@ -670,7 +670,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 				<!---HAPUS MODAL---> 
 				<!---HAPUS MODAL--->
 				<div id="HAPUS" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-					<div class="bg-white rounded-lg shadow-lg w-1/2 p-0">
+					<div class="bg-white rounded-lg shadow-lg lg:w-1/2 mx-10 p-0">
 						<!-- Header with background color -->
 						<div class="bg-[url('./assets/Background.jpg')] bg-cover bg-center text-white p-6 rounded-t-lg">
 							<h2 class="text-lg font-medium text-left">Hapus Pengguna</h2>
@@ -775,7 +775,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 				<!---TUKAR NO.KAKITANGAN MODAL--->
 				<!---TUKAR NO.KAKITANGAN MODAL--->
 				<div id="TUKAR" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-					<div class="bg-white rounded-lg shadow-lg w-1/2 p-0">
+					<div class="bg-white rounded-lg shadow-lg lg:w-1/2 mx-10 p-0">
 						<!-- Header with background color -->
 						<div class="bg-[url('./assets/Background.jpg')] bg-cover bg-center text-white p-6 rounded-t-lg">
 							<h2 class="text-lg font-medium text-left">Tukar No. Kakitangan</h2>
@@ -887,7 +887,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 				<!---RESET MODAL---> 
 				<!---RESET MODAL--->
 				<div id="RESET" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-					<div class="bg-white rounded-lg shadow-lg w-1/2 p-0">
+					<div class="bg-white rounded-lg shadow-lg lg:w-1/2 mx-10 p-0">
 						<!-- Header with background color -->
 						<div class="bg-[url('./assets/Background.jpg')] bg-cover bg-center text-white p-6 rounded-t-lg">
 							<h2 class="text-lg font-medium text-left">Reset Kata Laluan</h2>

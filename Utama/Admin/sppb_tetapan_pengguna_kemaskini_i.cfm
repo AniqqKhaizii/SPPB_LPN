@@ -131,11 +131,11 @@ localStorage.setItem('scrollpos', window.scrollY);
 
 <div class="w-full border border-gray-300"> 
     <!---<div class="grid grid-cols-1 sm:grid-cols-2">--->
-	<div class="grid grid-cols-2">
+	<div class="grid grid-cols-1 sm:grid-cols-2">
 		<!---<div class="grid grid-cols-1"> --->
 		<div class="col-span-1">
 			<div class="m-2">
-								<table class="p-4 min-w-full border border-gray-300">
+								<table class="w-full border border-gray-300">
 									<tr>
 										<td class="px-2 py-2" width="25%">  
 											<div class="flex items-center">
@@ -277,7 +277,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 											</div> 
 										</td> 
 										<td class="px-2 py-2" colspan="2">  
-											<div class="flex justify-start gap-6 items-center"> 
+											<div class="flex justify-start gap-2 sm:gap-6 items-center"> 
 												<div class="flex gap-2"> 
 													<input  type="radio" name="USR_ROLES_BIASA" value="Y"<cfif USR_ROLES_BIASA EQ 'Y'> checked</cfif>>Biasa
 												</div>
@@ -505,7 +505,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 
             <div class="tabs p-2">
               <div class="block">
-                <ul class="flex border-b border-gray-200 space-x-3 transition-all duration-300 -mb-px">
+                <ul class="sm:flex flex-wrap border-b border-gray-200 space-x-3 transition-all duration-300 -mb-px">
                   <li>
                     <a class="inline-block py-2 px-3 text-gray-500 hover:text-gray-800 font-medium border-b-2 border-transparent tab-active:border-b-indigo-600 tab-active:text-indigo-600 active tablink whitespace-nowrap cursor-pointer" data-tab="tabs-with-underline-1" role="tab">Akses Data</a>
                   </li>
@@ -858,7 +858,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 
 
 <div id="MODAL_KELUAR_PAGE" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-    <div class="bg-white rounded-lg shadow-lg w-1/3 p-0"> <!-- Removed p-6 for tighter spacing -->
+    <div class="bg-white rounded-lg shadow-lg lg:w-1/3 sm:w-full mx-10  p-0"> <!-- Removed p-6 for tighter spacing -->
         <!-- Header with background color -->
         <div class="bg-[url('./assets/Background.jpg')] bg-cover bg-center text-white p-4 rounded-t-lg">
             <h2 class="text-lg font-medium">Kembali Ke Halaman Sebelum</h2>

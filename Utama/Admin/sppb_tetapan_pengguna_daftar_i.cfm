@@ -310,7 +310,7 @@ localStorage.setItem('scrollpos', window.scrollY);
         </cfif>		
         </cfif>	 
         <div id="MODAL_KELUAR_PAGE" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
-            <div class="bg-white rounded-lg shadow-lg w-1/3 p-0"> <!-- Removed p-6 for tighter spacing -->
+            <div class="bg-white rounded-lg shadow-lg lg:w-1/3 p-0"> <!-- Removed p-6 for tighter spacing -->
                 <!-- Header with background color -->
                 <div class="bg-[url('./assets/Background.jpg')] bg-cover bg-center text-white p-4 rounded-t-lg">
                     <h2 class="text-lg font-medium">Kembali Ke Halaman Sebelum</h2>
