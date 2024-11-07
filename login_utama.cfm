@@ -42,7 +42,7 @@
             <span class="hidden sm:block sm:h-px sm:w-8 sm:bg-yellow-500"></span>
           </div>
         </a>
-        <a href="./Pemaju" class="block my-4">
+        <a href="./Utama/Pemaju" class="block my-4">
           <img
             alt=""
             src="https://img.icons8.com/fluency/96/worker-male.png"
@@ -57,7 +57,7 @@
           </div>
         </a>
         
-        <a href="./Pembeli" class="block my-4">
+        <a href="./Utama/Pembeli" class="block my-4">
           <img
             alt=""
             src="https://cdn-icons-png.flaticon.com/512/1067/1067029.png"

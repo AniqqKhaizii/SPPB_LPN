@@ -16,6 +16,9 @@
                 <main class="bg-transparent px-5 pt-20 flex-grow">
                     <cfinclude template="./sppb_tetapan_organisasi_kemaskini_i.cfm">
                 </main>
+
+                <!-- Footer -->
+                <cfinclude template="../includes/footer.cfm">
             </div>
     </div>
 </body>

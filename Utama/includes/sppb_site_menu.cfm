@@ -19,7 +19,7 @@
     </div>
     <nav class="flex-1 py-4 space-y-2 text-sm">
         <div class="relative">
-            <input type="checkbox" id="PemajuDropdown" class="peer hidden" <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Pemaju/sppb_daftar_pemaju.cfm">checked<cfelse>unchecked</cfif> >
+            <input type="checkbox" id="PemajuDropdown" class="peer hidden" <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_daftar_pemaju.cfm">checked<cfelse>unchecked</cfif> >
             <label for="PemajuDropdown" class="flex justify-between items-center w-full py-2.5 px-4 hover:bg-pink-700 transition cursor-pointer peer-checked:bg-purple-900">
                 <div class="flex items-center space-x-2">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,10 +33,10 @@
                 </svg>
             </label>
             <div class="max-h-0 overflow-hidden peer-checked:max-h-40 transition-all duration-500 ease-in-out space-y-2 peer-checked:bg-purple-900">
-                <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Pemaju/sppb_daftar_pemaju.cfm">
-                    <a href="../Pemaju/sppb_daftar_pemaju.cfm" class="flex items-center space-x-2 gap-2 py-2.5 px-4 bg-gray-100 text-gray-800 hover:bg-pink-700 transition pl-8">
+                <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_daftar_pemaju.cfm">
+                    <a href="../Admin/sppb_daftar_pemaju.cfm" class="flex items-center space-x-2 gap-2 py-2.5 px-4 bg-gray-100 text-gray-800 hover:bg-pink-700 transition pl-8">
                 <cfelse>
-                    <a href="../Pemaju/sppb_daftar_pemaju.cfm" class="flex items-center space-x-2 gap-2 py-2.5 px-4 hover:bg-pink-700 transition pl-8">
+                    <a href="../Admin/sppb_daftar_pemaju.cfm" class="flex items-center space-x-2 gap-2 py-2.5 px-4 hover:bg-pink-700 transition pl-8">
                 </cfif>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
                         <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5"/>
@@ -44,7 +44,7 @@
                     </svg>
                     Syarikat
                 </a>
-                <a href="/Pemaju/Projek" class="flex items-center space-x-2 gap-2 py-2.5 px-4 hover:bg-pink-700 transition pl-8">
+                <a href="../Admin/sppb_pemaju_projek.cfm" class="flex items-center space-x-2 gap-2 py-2.5 px-4 hover:bg-pink-700 transition pl-8">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 2C2 1.44772 2.44772 1 3 1H7.58579C7.851 1 8.10536 1.10536 8.29289 1.29289L15.2929 8.29289C15.6834 8.68342 15.6834 9.31658 15.2929 9.70711L10.7071 14.2929C10.3166 14.6834 9.68342 14.6834 9.29289 14.2929L2.29289 7.29289C2.10536 7.10536 2 6.851 2 6.58579V2ZM5.5 6C6.32843 6 7 5.32843 7 4.5C7 3.67157 6.32843 3 5.5 3C4.67157 3 4 3.67157 4 4.5C4 5.32843 4.67157 6 5.5 6Z" fill="white"/>
                         <path d="M1.29289 7.79289C1.10536 7.60536 1 7.351 1 7.08579V2C0.447715 2 0 2.44772 0 3V7.58579C0 7.851 0.105356 8.10536 0.292892 8.29289L7.29289 15.2929C7.68342 15.6834 8.31658 15.6834 8.70711 15.2929L8.75 15.25L1.29289 7.79289Z" fill="white"/>
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-       <a href="/Pembeli" class="flex items-center space-x-2 py-2.5 px-4 hover:bg-pink-700 transition">
+       <a href="../Admin/sppb_pembeli.cfm" class="flex items-center space-x-2 py-2.5 px-4 hover:bg-pink-700 transition">
             <svg class="w-5 h-5 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M16 19h4a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-2m-2.236-4a3 3 0 1 0 0-4M3 18v-1a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Zm8-10a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
             </svg>
@@ -171,7 +171,7 @@
                         </cfif>    
                             Tempat
                         </a>
-                        <a href="/Tetapan/Hartanah" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-pink-700 transition pl-8">
+                        <a href="../Admin/sppb_tetapan_hartanah.cfm" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-pink-700 transition pl-8">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.5 14.5V10.9947C6.5 10.75 6.75 10.5 7 10.5H9C9.25 10.5 9.5 10.75 9.5 11V14.5C9.5 14.7761 9.72386 15 10 15H14C14.2761 15 14.5 14.7761 14.5 14.5V7.5C14.5 7.36739 14.4473 7.24021 14.3536 7.14645L13 5.79289V2.5C13 2.22386 12.7761 2 12.5 2H11.5C11.2239 2 11 2.22386 11 2.5V3.79289L8.35355 1.14645C8.15829 0.951184 7.84171 0.951184 7.64645 1.14645L1.64645 7.14645C1.55268 7.24021 1.5 7.36739 1.5 7.5V14.5C1.5 14.7761 1.72386 15 2 15H6C6.27614 15 6.5 14.7761 6.5 14.5Z" fill="white"/>
                             </svg>

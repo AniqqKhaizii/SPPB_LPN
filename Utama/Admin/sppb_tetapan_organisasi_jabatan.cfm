@@ -17,6 +17,9 @@
                 <main class="bg-transparent pt-16 flex-grow">
                     <cfinclude template="./sppb_tetapan_organisasi_jabatan_i.cfm">
                 </main>
+                
+                <!-- Footer -->
+                <cfinclude template="../includes/footer.cfm">
             </div>
     </div>
 </body>

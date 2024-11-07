@@ -12,7 +12,7 @@
       />
 
       <div class="hidden lg:relative lg:block lg:p-12">
-        <a href="../index.cfm">
+        <a href="../../index.cfm">
         <img src="../../public/assets/SPPB.png" class="h-24 w-24 rounded-full" />
         </a>
 
