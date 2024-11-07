@@ -107,6 +107,13 @@
                                 </svg>
 							</button>
 						</a>  
+                    </div>
+                </div>  
+                <div class="w-full py-2 px-4 border-b border-gray-300">
+                    <div class="flex justify-between items-center">
+                        <h1 class="text-2xl font-semibold text-gray-900 sm:text-2xl md:text-2xl">
+                            Senarai Tetapan Pengguna
+                        </h1>
 						<cfif #SESSION.USR_CTL_TETAPAN_PENGGUNA# CONTAINS 'C'> 
 						<a class="animsition-link" href="sppb_tetapan_pengguna_daftar.cfm">
 							<button type="button" class="flex items-center justify-center gap-2 bg-green-500 text-white font-medium py-2 px-4 rounded hover:bg-green-700 focus:outline-none w-full">
@@ -117,13 +124,6 @@
 							</button>
 						</a>
 						</cfif> 
-                    </div>
-                </div>  
-                <div class="w-full py-2 px-4 border-b border-gray-300">
-                    <div class="flex justify-between items-center">
-                        <h1 class="text-2xl font-semibold text-gray-900 sm:text-2xl md:text-2xl">
-                            Senarai Tetapan Pengguna
-                        </h1>
                     </div>
                 </div>  
                 
