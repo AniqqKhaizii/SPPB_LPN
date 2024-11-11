@@ -32,6 +32,12 @@
 <cfprocresult name="RS_NEGERI">
 </cfstoredproc>	
 
+<cfstoredproc procedure="SP_SENARAI_TEMPAT_DAERAH" datasource="LPN_0SYS"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm" null="No"> 
+<cfprocresult name = RS_SENARAI_DAERAH> 
+</cfstoredproc> 
 
 <!---RETURN MESSAGE START--->
 <!---RETURN MESSAGE START--->
@@ -92,6 +98,7 @@
 <div class="page">
     <div class="flex flex-col">
       <div class="card p-8"> 
+
         <cfform id="form1" name="form1" method="post" action="" class="flex flex-col space-y-4">
             <div class="flex flex-col shadow-md pb-8 h-auto">
                 <div class="flex items-center justify-between py-2 px-4 bg-[#580588] rounded-t-lg" data-plugin="appear" data-animate="fade">
@@ -145,8 +152,9 @@
                             <thead class="bg-gray-200">
                                 <tr align="center">
                                     <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 5%;">No.</th>
-                                    <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 25%;">Singkatan</th>
-                                    <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 40%;">Nama</th>
+                                    <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Singkatan</th>
+                                    <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 35%;">Nama</th>
+                                    <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Daerah</th>
                                     <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Tindakan</th>
                                 </tr>
                             </thead>
@@ -162,6 +170,9 @@
                                         </td>
                                         <td class="border border-gray-300 py-2 px-4">
                                             #PBT_NAMA#
+                                        </td>
+                                         <td class="border border-gray-300 py-2 px-4">
+                                            <a href="./sppb_tetapan_tempat_daerah.cfm?TMD_KOD=#TMD_KOD#" class="text-blue-600 hover:underline">#TMD_NAMA#</a>
                                         </td>
                                         <td class="border border-gray-300 py-2 px-2 text-center">
                                             <div class="flex gap-2 items-center justify-center"> 
@@ -214,19 +225,25 @@
                         <input name="PBT_NSGKT" class="w-full text-gray-800 border border-gray-400 rounded-md px-2 py-1" type="text"/>
                     </div>
                     <div class="flex items-center">
+                        <span class="w-1/4 font-medium text-gray-800">Daerah</span>
+                        <span class="w-1/12 text-left">:</span>
+                        <cfoutput>
+                        <select class="w-full text-gray-800 border border-gray-300 rounded-md px-2 py-2 h-10" name="PBT_TMD_KOD" id="PBT_TMD_KOD">
+                            <option value="">-- Sila Pilih Daerah --</option>
+                            <cfloop query="RS_SENARAI_DAERAH">
+                                    <option value="#NumberFormat(TMD_KOD, '0')#">#TMD_NAMA#</option>
+                            </cfloop>
+                        </select>
+                        </cfoutput>
+                    </div>
+                    <div class="flex items-center">
                         <span class="w-1/4 font-medium text-gray-800">Negeri</span>
                         <span class="w-1/12 text-left">:</span>
                         <cfoutput>
                          <select class="w-full text-gray-800 border border-gray-300 rounded-md px-4 py-2 h-10" name="PBT_NEGERI" id="PBT_NEGERI">
+                            <option value="">-- Sila Pilih Negeri --</option>
                             <cfloop query="RS_NEGERI">
-                                <cfif TMS_KOD EQ RS_ORGANISASI.LPN_TMS_KOD>
                                     <option value="#TMS_NAMA#">#TMS_NAMA#</option>
-                                </cfif>
-                            </cfloop>
-                            <cfloop query="RS_NEGERI">
-                                <cfif TMS_KOD NEQ RS_ORGANISASI.LPN_TMS_KOD>
-                                    <option value="#TMS_NAMA#">#TMS_NAMA#</option>
-                                </cfif>
                             </cfloop>
                         </select>
                         </cfoutput>
@@ -248,7 +265,7 @@
                 <div class="grid grid-cols-2 gap-4 mt-12">
                     <div class="space-y-4 col-span-1">
                         <div class="flex items-center justify-start">
-                            <button type="submit" class="flex gap-2 items-center justify-center w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="MASUK_DATA" id="MASUK_DATA" disabled> 
+                            <button type="submit" class="flex gap-2 items-center justify-center w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="DAFTAR_DATA" id="DAFTAR_DATA" disabled> 
                                 Simpan
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy2" viewBox="0 0 16 16">
                                   <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v3.5A1.5 1.5 0 0 1 11.5 6h-7A1.5 1.5 0 0 1 3 4.5V1H1.5a.5.5 0 0 0-.5.5m9.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
@@ -268,7 +285,7 @@
                     </div>
                 </div>		 
 
-                <cfif isdefined("form.MASUK_DATA")>
+                <cfif isdefined("form.DAFTAR_DATA")>
                     <cfstoredproc procedure="SP_TETAPAN_TEMPAT_PBT_SIMPAN" datasource="LPN_0SYS"> 
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#"> 
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#">  
@@ -276,6 +293,7 @@
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@ADD_NEW"  value="Y">
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PBT_NAMA"  value="#FORM.PBT_NAMA#">
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PBT_NSGKT"  value="#FORM.PBT_NSGKT#">
+                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PBT_TMD_KOD"  value="#FORM.PBT_TMD_KOD#">
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PBT_NEGERI"  value="#FORM.PBT_NEGERI#">
                         <cfprocresult name = RS_MASUK_DATA>		
                     </cfstoredproc>
@@ -293,7 +311,7 @@
 
 <script>
     function goFurther(elem) {
-        const saveButton = document.getElementById("MASUK_DATA");
+        const saveButton = document.getElementById("DAFTAR_DATA");
         if (elem.checked) {
             saveButton.disabled = false;
             saveButton.classList.remove('bg-blue-200', 'cursor-not-allowed');
@@ -342,6 +360,22 @@
                         <span class="w-1/4 font-medium text-gray-800">Nama Singkatan</span>
                         <span class="w-1/12 text-left">:</span>
                         <input name="PBT_NSGKT" value="#PBT_NSGKT#" class="w-full text-gray-800 border border-gray-400 rounded-md px-2 py-1" type="text"/>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-1/4 font-medium text-gray-800">Daerah</span>
+                        <span class="w-1/12 text-left">:</span>
+                        <select class="w-full text-gray-800 border border-gray-300 rounded-md px-2 py-2 h-10" name="TMD_KOD" id="TMD_KOD">
+                            <cfloop query="RS_SENARAI_DAERAH">
+                                <cfif TMD_KOD EQ RS_PBT.TMD_KOD>
+                                    <option value="#NumberFormat(TMD_KOD, '0')#">#TMD_NAMA#</option>
+                                </cfif>
+                            </cfloop>
+                            <cfloop query="RS_SENARAI_DAERAH">
+                                <cfif TMD_KOD NEQ RS_PBT.TMD_KOD>
+                                    <option value="#NumberFormat(TMD_KOD, '0')#">#TMD_NAMA#</option>
+                                </cfif>
+                            </cfloop>
+                        </select>
                     </div>
                     <div class="flex items-center">
                         <span class="w-1/4 font-medium text-gray-800">Negeri</span>

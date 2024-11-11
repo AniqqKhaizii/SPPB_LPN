@@ -76,7 +76,8 @@
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_cari.cfm" OR 
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_daftar.cfm" OR
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_kemaskini.cfm" OR 
-                        #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_papar.cfm">
+                        #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_papar.cfm" OR
+                        #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pemaju.cfm">
              checked<cfelse>unchecked</cfif> >
             <label for="SistemDropdown" class="flex justify-between items-center w-full py-2.5 px-4 hover:bg-pink-700 transition cursor-pointer peer-checked:bg-purple-900">
                 <div class="flex items-center space-x-2">
@@ -91,7 +92,7 @@
             </label>
             
             
-            <div class="max-h-0 overflow-hidden peer-checked:max-h-64 peer-checked:bg-purple-900 transition-all duration-500 ease-in-out space-y-2">
+            <div class="max-h-0 overflow-hidden peer-checked:max-h-96 peer-checked:bg-purple-900 transition-all duration-500 ease-in-out space-y-2">
                 <div class="relative">
                     <input type="checkbox" id="TetapanDropdown" class="peer hidden" 
                     <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_organisasi.cfm" OR
@@ -106,7 +107,8 @@
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_cari.cfm" OR 
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_daftar.cfm" OR
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_kemaskini.cfm" OR 
-                        #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_papar.cfm">checked<cfelse>unchecked</cfif> >
+                        #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pengguna_papar.cfm" OR
+                        #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pemaju.cfm">checked<cfelse>unchecked</cfif> >
                     <label for="TetapanDropdown" class="flex justify-between items-center w-full py-2.5 px-4 hover:bg-pink-700 transition cursor-pointer">
                         <div class="flex items-center space-x-2">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +122,7 @@
                     </label>
                     
                     <!-- Tetapan Links -->
-                    <div class="max-h-0 overflow-hidden peer-checked:max-h-64 peer-checked:bg-purple-900 transition-all duration-500 ease-in-out space-y-2">
+                    <div class="max-h-0 overflow-hidden peer-checked:max-h-96 peer-checked:bg-purple-900 transition-all duration-500 ease-in-out space-y-2">
                         <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_organisasi.cfm" OR 
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_organisasi_kemaskini.cfm" OR 
                         #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_organisasi_jabatan.cfm">
@@ -171,10 +173,28 @@
                         </cfif>    
                             Tempat
                         </a>
+                        <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_pemaju.cfm">
+                        <a href="../Admin/sppb_tetapan_pemaju.cfm" class="flex items-center space-x-4 gap-2 py-2.5 bg-gray-100 text-gray-800 hover:bg-gray-400 transition pl-8">
+                        <img width="16" height="16" src="https://img.icons8.com/ios-filled/50/000000/worker-male.png" alt="worker-male"/>
+                        <cfelse>    
+                        <a href="../Admin/sppb_tetapan_pemaju.cfm" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-pink-700 transition pl-8">
+                        <img width="16" height="16" src="https://img.icons8.com/ios-filled/50/FFFFFF/worker-male.png" alt="worker-male"/>
+                        </cfif>    
+                            Pemaju
+                        </a>
+                        <cfif #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_hartanah.cfm" OR  
+                        #CGI.SCRIPT_NAME# EQ "/SPPB_LPN/Utama/Admin/sppb_tetapan_tempat_pbt.cfm">
+                        <a href="../Admin/sppb_tetapan_hartanah.cfm" class="flex items-center space-x-4 gap-2 py-2.5 bg-gray-100 text-gray-800 hover:bg-gray-400 transition pl-8">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.5 14.5V10.9947C6.5 10.75 6.75 10.5 7 10.5H9C9.25 10.5 9.5 10.75 9.5 11V14.5C9.5 14.7761 9.72386 15 10 15H14C14.2761 15 14.5 14.7761 14.5 14.5V7.5C14.5 7.36739 14.4473 7.24021 14.3536 7.14645L13 5.79289V2.5C13 2.22386 12.7761 2 12.5 2H11.5C11.2239 2 11 2.22386 11 2.5V3.79289L8.35355 1.14645C8.15829 0.951184 7.84171 0.951184 7.64645 1.14645L1.64645 7.14645C1.55268 7.24021 1.5 7.36739 1.5 7.5V14.5C1.5 14.7761 1.72386 15 2 15H6C6.27614 15 6.5 14.7761 6.5 14.5Z" fill="black"/>
+                            </svg>
+                        <cfelse>    
                         <a href="../Admin/sppb_tetapan_hartanah.cfm" class="flex items-center space-x-4 gap-2 py-2.5 hover:bg-pink-700 transition pl-8">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.5 14.5V10.9947C6.5 10.75 6.75 10.5 7 10.5H9C9.25 10.5 9.5 10.75 9.5 11V14.5C9.5 14.7761 9.72386 15 10 15H14C14.2761 15 14.5 14.7761 14.5 14.5V7.5C14.5 7.36739 14.4473 7.24021 14.3536 7.14645L13 5.79289V2.5C13 2.22386 12.7761 2 12.5 2H11.5C11.2239 2 11 2.22386 11 2.5V3.79289L8.35355 1.14645C8.15829 0.951184 7.84171 0.951184 7.64645 1.14645L1.64645 7.14645C1.55268 7.24021 1.5 7.36739 1.5 7.5V14.5C1.5 14.7761 1.72386 15 2 15H6C6.27614 15 6.5 14.7761 6.5 14.5Z" fill="white"/>
                             </svg>
+                            </svg>
+                        </cfif>
                             Hartanah
                         </a>
                     </div>

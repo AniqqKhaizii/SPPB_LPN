@@ -1,4 +1,8 @@
+<cfif isDefined("URL.TMA_KOD")>
+<cfparam name="FORM.TMA_KOD" default="#URL.TMA_KOD#">
+<cfelse>
 <cfparam name="FORM.TMA_KOD" default="">
+</cfif>
 <cfparam name="FORM.TMA_NAMA" default="">
 
 <cfstoredproc procedure="[SP_System_Akses_Pengguna_Login]" datasource="LPN_0SYS"> 
@@ -12,10 +16,17 @@
 <cfstoredproc procedure="SP_TETAPAN_TEMPAT_ADUN_CARIAN" datasource="LPN_0SYS"> 
 <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#" null="No"> 
 <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#" null="No"> 
-<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_Adun.cfm" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_Adun.cfm" null="No">
+<cfif FORM.TMA_KOD NEQ ""> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMA_KOD"  value="#FORM.TMA_KOD#" null="No">
+</cfif> 
 <cfprocresult name = RS_ADUN> 
 </cfstoredproc> 
 
+<cfquery dbtype="query" name="RS_ADUN_TABLE">
+    SELECT * FROM RS_ADUN
+    ORDER BY TMA_KOD ASC
+</cfquery>
 <cfstoredproc procedure="SP_TETAPAN_LPN_CARIAN" datasource="LPN_0SYS"> 
 <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#" null="No"> 
 <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#" null="No"> 
@@ -142,7 +153,7 @@
                             </thead>
 
                             <tbody>
-                            <cfoutput query="RS_ADUN">
+                            <cfoutput query="RS_ADUN_TABLE">
                                 <tr class="border-t">
                                 <td class="border border-gray-300 text-center py-2"><p>#CurrentRow#.</p></td>
                                 <td class="border border-gray-300 py-2 px-4">#TMA_KOD#</td>
@@ -228,7 +239,7 @@
                             <div class="grid grid-cols-2 gap-4 mt-12">
                                 <div class="space-y-4 col-span-1">
                                     <div class="flex items-center justify-start">
-                                        <button type="submit" class="flex gap-2 items-center justify-center w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="MASUK_DATA" id="MASUK_DATA" disabled> 
+                                        <button type="submit" class="flex gap-2 items-center justify-center w-1/2 bg-blue-200 text-white font-medium py-2 px-4 rounded cursor-not-allowed" name="DAFTAR_DATA" id="DAFTAR_DATA" disabled> 
                                             Simpan
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy2" viewBox="0 0 16 16">
                                                 <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v3.5A1.5 1.5 0 0 1 11.5 6h-7A1.5 1.5 0 0 1 3 4.5V1H1.5a.5.5 0 0 0-.5.5m9.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
@@ -248,7 +259,7 @@
                                 </div>
                             </div>		 
 
-                            <cfif isdefined("form.MASUK_DATA")>
+                            <cfif isdefined("form.DAFTAR_DATA")>
                                 <cfstoredproc procedure="SP_TETAPAN_TEMPAT_ADUN_SIMPAN" datasource="LPN_0SYS"> 
                                     <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#"> 
                                     <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#">  
@@ -259,11 +270,11 @@
                                     <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMA_YB_NAMA"  value="#FORM.TMA_YB_NAMA#">
                                     <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMA_YB_TELNO"  value="#FORM.TMA_YB_TELNO#">
                                     <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMA_YB_EMEL"  value="#FORM.TMA_YB_EMEL#">
-                                    <cfprocresult name = RS_MASUK_DATA>		
+                                    <cfprocresult name = RS_DAFTAR_DATA>		
                                 </cfstoredproc>
 
-                                <cfif isdefined("RS_MASUK_DATA.RETURN_MESSAGE") AND #RS_MASUK_DATA.RETURN_CODE# LT 0>
-                                    <cflocation url="sppb_tetapan_tempat_Adun.cfm?ERROR=#RS_MASUK_DATA.RETURN_MESSAGE#">
+                                <cfif isdefined("RS_DAFTAR_DATA.RETURN_MESSAGE") AND #RS_DAFTAR_DATA.RETURN_CODE# LT 0>
+                                    <cflocation url="sppb_tetapan_tempat_Adun.cfm?ERROR=#RS_DAFTAR_DATA.RETURN_MESSAGE#">
                                 <cfelse>
                                     <cflocation url="sppb_tetapan_tempat_Adun.cfm">
                                 </cfif>
@@ -275,7 +286,7 @@
 
             <script>
                 function goFurther(elem) {
-                    const saveButton = document.getElementById("MASUK_DATA");
+                    const saveButton = document.getElementById("DAFTAR_DATA");
                     if (elem.checked) {
                         saveButton.disabled = false;
                         saveButton.classList.remove('bg-blue-200', 'cursor-not-allowed');

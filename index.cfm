@@ -50,15 +50,42 @@
       </div>
 
       <div class="flex items-center gap-4">
-        <div class="sm:flex sm:gap-4">
+        <div class="sm:flex sm:gap-4 relative group">
           <a
             class="bg-rose-600 rounded-full px-5 py-2.5 text-sm font-medium text-white shadow"
-            href="./login_utama.cfm"
+            href="#"
           >
             Log Masuk
           </a>
 
+          <!-- Submenu -->
+          <div
+            class="absolute left-0 hidden group-hover:flex flex-col bg-white shadow-lg rounded-lg w-40 border border-gray-200 z-10"
+            style="top: 100%;"
+          >
+            <a
+              href="./Utama/Admin/index.cfm"
+              class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-rose-600"
+            >
+              Admin
+            </a>
+            <a
+              href="./Utama/Pemaju/index.cfm"
+              class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-rose-600"
+            >
+              Pemaju
+            </a>
+            <a
+              href="./Utama/Pembeli/index.cfm"
+              class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-rose-600"
+            >
+              Pembeli
+            </a>
+          </div>
         </div>
+
+
+
 
         <div class="block md:hidden">
           <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">

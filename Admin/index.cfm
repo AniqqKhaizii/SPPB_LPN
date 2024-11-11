@@ -3,27 +3,8 @@
 <cfinclude template="./templates/head.cfm">
 <body>
 <section class="bg-gradient-to-b from-[#f0f0f0] to-[#f8f8f8]">
-  <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
-    <section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
-      <img
-        alt=""
-        src="https://cdn-cms.pgimgs.com/static/2020/02/m10.jpg"
-        class="absolute inset-0 h-full w-full object-cover opacity-10"
-      />
-
-      <div class="hidden lg:relative lg:block lg:p-12">
-        <a href="../index.cfm">
-        <img src="../public/assets/SPPB.png" class="h-24 w-24 rounded-full" />
-        </a>
-
-        <h2 class="mt-6 text-xl font-semibold text-white sm:text-3xl md:text-4xl uppercase">
-          Sistem Pengurusan Perumahan Bersepadu
-        </h2>
-      </div>
-    </section>
-
     <main
-      class="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6 bg-gray-300"
+      class="flex items-center justify-center px-8 py-8 sm:px-12 lg:px-16 lg:py-12 bg-gray-300"
     >
       <div class="mx-auto my-auto max-w-screen px-4 py-20 sm:px-6 lg:px-8">
         <div class="mx-auto my-auto max-w-screenxl">
@@ -98,7 +79,6 @@
         </div>
       </div>
     </main>
-  </div>
 </section>
 </body>
 </html>

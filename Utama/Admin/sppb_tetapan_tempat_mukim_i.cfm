@@ -29,6 +29,27 @@
 <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm" null="No"> 
 <cfprocresult name = RS_ORGANISASI> 
 </cfstoredproc> 
+
+<cfstoredproc procedure="SP_SENARAI_TEMPAT_DAERAH" datasource="LPN_0SYS"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm" null="No"> 
+<cfprocresult name = RS_SENARAI_DAERAH> 
+</cfstoredproc> 
+
+<cfstoredproc procedure="SP_SENARAI_TEMPAT_ADUN" datasource="LPN_0SYS"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm" null="No"> 
+<cfprocresult name = RS_SENARAI_ADUN> 
+</cfstoredproc> 
+
+<cfstoredproc procedure="SP_SENARAI_TEMPAT_PARLIMEN" datasource="LPN_0SYS"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@LPN_KOD"  value="#Session.LPN_CODE#" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@USER_ID"  value="#Session.SS_USR_ID#" null="No"> 
+<cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@PAGE_URL"  value="sppb_tetapan_tempat_mukim.cfm" null="No"> 
+<cfprocresult name = RS_SENARAI_PARLIMEN> 
+</cfstoredproc> 
 <!---RETURN MESSAGE START--->
 <!---RETURN MESSAGE START--->
 <!---RETURN MESSAGE START--->	
@@ -141,9 +162,11 @@
                             <thead class="bg-gray-200">
                             <tr align="center">
                                 <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 5%;">No.</th>
-                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 30%;">Daerah</th>
-                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 30%;">Mukim</th>
-                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Tindakan</th>
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Daerah</th>
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Mukim</th>
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">ADUN</th>
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 20%;">Parlimen</th>
+                                <th class="border border-gray-300 py-2 px-4 font-medium" style="width: 15%;">Tindakan</th>
                             </tr>
                             </thead>
 
@@ -153,6 +176,8 @@
                                 <td class="border border-gray-300 text-center py-2"><p>#CurrentRow#.</p></td>
                                 <td class="border border-gray-300 py-2 px-4">#TMD_NAMA# (#TMD_KOD#)</td>
                                 <td class="border border-gray-300 py-2 px-4">#TMM_NAMA# (#TMM_KOD#)</td>
+                                <td class="border border-gray-300 py-2 px-4"><a href="./sppb_tetapan_tempat_adun.cfm?TMA_KOD=#TMA_KOD#" class="text-blue-600 hover:underline">#TMA_NAMA# (#TMA_KOD#)</a></td>
+                                <td class="border border-gray-300 py-2 px-4"><a href="./sppb_tetapan_tempat_parlimen.cfm?TMP_KOD=#TMP_KOD#" class="text-blue-600 hover:underline">#TMP_NAMA# (#TMP_KOD#)</a></td>
                                 <td class="border border-gray-300 py-2 px-2 text-center"> 
                                     <div class="flex gap-2 items-center justify-center">
                                         <button id="openKemaskini#TMM_KOD#" type="button" class="flex gap-2 items-center justify-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
@@ -302,9 +327,6 @@
             <form id="form2" name="form2" method="post" action="">
                 <div class="space-y-4 col-span-1"> 
                     <div class="flex items-center">
- 						<input hidden name="TMD_KOD" class="w-full bg-gray-200 text-gray-800 border border-gray-400 rounded-md px-2 py-1 focus:outline-none focus:border-gray-400" type="number" value="#TMD_KOD#"/>
-                    </div>
-                    <div class="flex items-center">
                         <span class="w-1/4 font-medium text-gray-800">Kod</span>
                         <span class="w-1/12 text-left">:</span> 
  						<input readonly name="TMM_KOD" class="w-full bg-gray-200 text-gray-800 border border-gray-400 rounded-md px-2 py-1 focus:outline-none focus:border-gray-400" type="number" value="#TMM_KOD#"/>
@@ -313,6 +335,54 @@
                         <span class="w-1/4 font-medium text-gray-800">Nama</span>
                         <span class="w-1/12 text-left">:</span>
                         <input name="TMM_NAMA" value="#TMM_NAMA#" class="w-full text-gray-800 border border-gray-400 rounded-md px-2 py-1" type="text"/>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-1/4 font-medium text-gray-800">Daerah</span>
+                        <span class="w-1/12 text-left">:</span>
+                        <select class="w-full text-gray-800 border border-gray-300 rounded-md px-2 py-2 h-10" name="TMD_KOD" id="TMD_KOD">
+                            <cfloop query="RS_SENARAI_DAERAH">
+                                <cfif TMD_KOD EQ RS_MUKIM.TMD_KOD>
+                                    <option value="#NumberFormat(TMD_KOD, '0')#">#TMD_NAMA#</option>
+                                </cfif>
+                            </cfloop>
+                            <cfloop query="RS_SENARAI_DAERAH">
+                                <cfif TMD_KOD NEQ RS_MUKIM.TMD_KOD>
+                                    <option value="#NumberFormat(TMD_KOD, '0')#">#TMD_NAMA#</option>
+                                </cfif>
+                            </cfloop>
+                        </select>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-1/4 font-medium text-gray-800">ADUN</span>
+                        <span class="w-1/12 text-left">:</span>
+                        <select class="w-full text-gray-800 border border-gray-300 rounded-md px-2 py-2 h-10" name="TMM_TMA_KOD" id="TMM_TMA_KOD">
+                            <cfloop query="RS_SENARAI_ADUN">
+                                <cfif TMA_KOD EQ RS_MUKIM.TMA_KOD>
+                                    <option value="#TMA_KOD#">#TMA_NAMA#</option>
+                                </cfif>
+                            </cfloop>
+                            <cfloop query="RS_SENARAI_ADUN">
+                                <cfif TMA_KOD NEQ RS_MUKIM.TMA_KOD>
+                                    <option value="#TMA_KOD#">#TMA_NAMA#</option>
+                                </cfif>
+                            </cfloop>
+                        </select>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-1/4 font-medium text-gray-800">Parlimen</span>
+                        <span class="w-1/12 text-left">:</span>
+                        <select class="w-full text-gray-800 border border-gray-300 rounded-md px-2 py-2 h-10" name="TMM_TMP_KOD" id="TMM_TMP_KOD">
+                            <cfloop query="RS_SENARAI_PARLIMEN">
+                                <cfif TMP_KOD EQ RS_MUKIM.TMP_KOD>
+                                    <option value="#TMP_KOD#">#TMP_NAMA#</option>
+                                </cfif>
+                            </cfloop>
+                            <cfloop query="RS_SENARAI_PARLIMEN">
+                                <cfif TMP_KOD NEQ RS_MUKIM.TMP_KOD>
+                                    <option value="#TMP_KOD#">#TMP_NAMA#</option>
+                                </cfif>
+                            </cfloop>
+                        </select>
                     </div>
                 </div>
  
@@ -359,6 +429,8 @@
                         <cfprocparam cfsqltype="CF_SQL_INTEGER" dbvarname="@TMM_KOD"  value=#FORM.TMM_KOD#>
                         <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMM_NAMA"  value="#FORM.TMM_NAMA#">
                         <cfprocparam cfsqltype="CF_SQL_INTEGER" dbvarname="@TMD_KOD"  value=#FORM.TMD_KOD#>
+                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMM_TMA_KOD"  value=#FORM.TMM_TMA_KOD#>
+                        <cfprocparam cfsqltype="CF_SQL_VARCHAR" dbvarname="@TMM_TMP_KOD"  value=#FORM.TMM_TMP_KOD#>
                         <cfprocresult name = RS_KEMASKINI_DATA>		
                     </cfstoredproc>
 

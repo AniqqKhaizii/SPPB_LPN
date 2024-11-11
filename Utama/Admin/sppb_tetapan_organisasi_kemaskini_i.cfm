@@ -60,7 +60,7 @@ localStorage.setItem('scrollpos', window.scrollY);
 
 <div class="page">
 <div class="container mx-auto">
-  <div class="flex flex-col">
+  <div class="flex flex-col w-full">
       <form id="form1" name="form1" method="post" action="" class="flex flex-col space-y-4">
         <div class="flex flex-col shadow-md bg-white pb-4">
  
@@ -335,7 +335,11 @@ localStorage.setItem('scrollpos', window.scrollY);
 </div>
 </div>
 </div>
-</div>
+
+
+
+
+
 <div id="MODAL_KELUAR_PAGE" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden">
     <div class="bg-white  rounded-lg shadow-lg sm:w-1/2 lg:w-1/3 p-0"> <!-- Removed p-6 for tighter spacing -->
         <!-- Header with background color -->
